@@ -1,7 +1,7 @@
 # ---- Configuration (your paths) ----
-$ExifToolPath = 'C:\Users\saood\PortablePrograms\ExifTool\exiftool.exe' #TODO: set this to the exiftool.exe path
-$RootFolder   = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the images
-$TargetDate = '2001:01:01' #TODO: set this to the target date you want the images to be set to
+$ExifToolPath = '.\Media_Metadata_Editor\Programs\ExifTool\exiftool.exe'
+$RootFolder   = 'C:\Users\saood\Pictures\Backgrounds' #TODO: set this to the folder that contains the images
+$TargetDate = '2018:01:01' #TODO: set this to the target date you want the images to be set to
 $TargetTime = '12:00:00' #TODO: set this to the target time you want the images to be set to
 $Target = "$TargetDate $TargetTime"
 
