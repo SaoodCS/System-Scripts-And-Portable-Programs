@@ -1,6 +1,6 @@
 # ---- Configuration (your paths) ----
-$ExifToolPath = '.\Media_Metadata_Editor\Programs\ExifTool\exiftool.exe'
-$RootFolder   = 'C:\Users\saood\Desktop\Nikkah DNG' #TODO: set this to the folder that contains the images
+$ExifToolPath = '.\Metadata_Editor\Programs\ExifTool\exiftool.exe'
+$RootFolder   = 'C:\Users\saood\Desktop\Nikkah JPG' #TODO: set this to the folder that contains the images
 
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')
 $extArgs = @()
