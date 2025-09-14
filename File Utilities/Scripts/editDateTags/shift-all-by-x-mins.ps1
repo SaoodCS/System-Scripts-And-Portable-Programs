@@ -1,6 +1,6 @@
 # ---- Configuration ----
-$ExifToolPath = '.\Metadata_Editor\Programs\ExifTool\exiftool.exe'
-$RootFolder   = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the images
+$ExifToolPath = '.\File Utilities\Programs\ExifTool\exiftool.exe'
+$RootFolder   = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the files
 $MinutesOffset = 4 # TODO: set this to the no. of mins to change the date by e.g. 3 to add three mins; -5 to subtract five mins
 
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')

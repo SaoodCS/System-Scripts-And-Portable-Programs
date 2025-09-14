@@ -1,7 +1,7 @@
 # Configuration
 $SourceFolder      = 'D:\AS DNG' #TODO: set the folder containing the original images
 $DestinationFolder = 'C:\Users\saood\Desktop\MagickTrying\' #TODO: set the folder you want the converted images in
-$MagickPath        = ".\Metadata_Editor\Programs\ImageMagick\magick.exe"
+$MagickPath        = ".\File Utilities\Programs\ImageMagick\magick.exe"
 # Get the image files
 $Extensions = @('*.png','*.jpg','*.jpeg','*.dng','*.tif','*.tiff','*.bmp','*.gif','*.heic','*.webp','*.cr2','*.nef','*.arw','*.orf','*.rw2')
 $ImageFiles = Get-ChildItem -Path (Join-Path $SourceFolder '*') -Include $Extensions -File -Recurse
