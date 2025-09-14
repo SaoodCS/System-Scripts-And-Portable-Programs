@@ -1,5 +1,5 @@
 # ---- Configuration (your paths) ----
-$ExifToolPath = '.\File Utilities\Programs\ExifTool\exiftool.exe'
+$ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
 $RootFolder   = 'C:\Users\saood\Desktop\Nikkah JPG' #TODO: set this to the folder that contains the files
 
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')

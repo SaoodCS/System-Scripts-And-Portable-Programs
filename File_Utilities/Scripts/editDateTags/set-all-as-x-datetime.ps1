@@ -1,5 +1,5 @@
 # ---- Configuration (your paths) ----
-$ExifToolPath = '.\File Utilities\Programs\ExifTool\exiftool.exe'
+$ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
 $RootFolder   = 'C:\Users\saood\Pictures\Backgrounds' #TODO: set this to the folder that contains the files
 $TargetDate = '2018:01:01' #TODO: set this to the target date you want the files to be set to
 $TargetTime = '12:00:00' #TODO: set this to the target time you want the files to be set to
