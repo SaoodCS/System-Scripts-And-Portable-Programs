@@ -1,8 +1,6 @@
-# ---- Configuration ----
 $ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
-$RootFolder   = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the files
+$SourceFolder   = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the files
 $MinutesOffset = 4 # TODO: set this to the no. of mins to change the date by e.g. 3 to add three mins; -5 to subtract five mins
-
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')
 $extArgs = @()
 foreach ($ext in $Extensions) { $extArgs += @('-ext', $ext) }
@@ -44,9 +42,8 @@ $runArgs = @(
     '-m', # Ignore minor warnings
     '-progress', # Show progress
     '-wm', 'w' # Only modify tags that already exist (skip non-existent)
-) + $extArgs + $tagArgs + @($RootFolder)
-# Execute
+) + $extArgs + $tagArgs + @($SourceFolder)
 $sign = ($(if ($HoursOffset -ge 0) { '+' } else { '-' }))
-Write-Host "Running ExifTool to shift times by $sign$absHours hour(s) on files under:`n$RootFolder`n" -ForegroundColor Cyan
+Write-Host "Running ExifTool to shift times by $sign$absHours hour(s) on files under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs
 Write-Host "`nDone. Check the output above for the number of files updated." -ForegroundColor Green

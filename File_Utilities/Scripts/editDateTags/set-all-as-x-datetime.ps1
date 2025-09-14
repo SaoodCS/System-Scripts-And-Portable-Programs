@@ -1,10 +1,8 @@
-# ---- Configuration (your paths) ----
 $ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
-$RootFolder   = 'C:\Users\saood\Pictures\Backgrounds' #TODO: set this to the folder that contains the files
+$SourceFolder   = 'C:\Users\saood\Pictures\Backgrounds' #TODO: set this to the folder that contains the files
 $TargetDate = '2018:01:01' #TODO: set this to the target date you want the files to be set to
 $TargetTime = '12:00:00' #TODO: set this to the target time you want the files to be set to
 $Target = "$TargetDate $TargetTime"
-
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')
 $extArgs = @()
 foreach ($ext in $Extensions) { $extArgs += @('-ext', $ext) }
@@ -37,9 +35,7 @@ $runArgs = @(
     '-overwrite_original', #Do not keep _original backups
     '-m', #Ignore minor warnings that could halt processing
     '-progress' #Show progress in console
-) + $extArgs + $tagArgs + @($RootFolder)
-
-# Execute
-Write-Host "Running ExifTool to set dates to $Target on files under:`n$RootFolder`n" -ForegroundColor Cyan
+) + $extArgs + $tagArgs + @($SourceFolder)
+Write-Host "Running ExifTool to set dates to $Target on files under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs
 Write-Host "`nDone. Check the output above for the number of files updated." -ForegroundColor Green

@@ -4,7 +4,6 @@ $DestinationFolder = 'C:\Users\saood\Pictures\iCloud Photos\Photos' # TODO: set 
 # Options
 $copyDataAttrTimestamps = $true   # Preserve Data, Attributes, and Timestamps
 $copyDirectoryTimestamps = $true   # Preserve Directory Timestamps
-$overwriteSameFileNames = $false  # Overwrite files with the same name?
 
 $options = @()
 if ($copyDataAttrTimestamps) { $options += '/COPY:DAT' }

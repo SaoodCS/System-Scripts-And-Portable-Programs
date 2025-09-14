@@ -1,7 +1,5 @@
-# ---- Configuration (your paths) ----
 $ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
-$RootFolder   = 'C:\Users\saood\Desktop\Nikkah JPG' #TODO: set this to the folder that contains the files
-
+$SourceFolder   = 'C:\Users\saood\Desktop\Nikkah JPG' #TODO: set this to the folder that contains the files
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')
 $extArgs = @()
 foreach ($ext in $Extensions) { $extArgs += @('-ext', $ext) }
@@ -36,8 +34,7 @@ $runArgs = @(
     '-overwrite_original', # Do not keep _original backups
     '-m', # Ignore minor warnings
     '-progress' # Show progress
-) + $extArgs + $tagArgs + @($RootFolder)
-# Execute
-Write-Host "Running ExifTool to copy 'Date Taken' into all date tags under:`n$RootFolder`n" -ForegroundColor Cyan
+) + $extArgs + $tagArgs + @($SourceFolder)
+Write-Host "Running ExifTool to copy 'Date Taken' into all date tags under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs
 Write-Host "`nDone. Check the output above for the number of files updated." -ForegroundColor Green
