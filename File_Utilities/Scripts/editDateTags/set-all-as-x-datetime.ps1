@@ -21,9 +21,12 @@ $tagArgs = @(
     "-MediaCreateDate=$Target",
     "-MediaModifyDate=$Target",
     "-Keys:CreationDate=$Target",
+    "-QuickTime:CreateDate=$Target",
     "-QuickTime:ContentCreateDate=$Target",
-    "-QuickTime:CreationDate=$Target"
-    "-QuickTime:DateTimeOriginal=$Target"
+    "-QuickTime:CreationDate=$Target",
+    "-QuickTime:DateTimeOriginal=$Target",
+    "-QuickTime:MediaCreateDate=$Target",
+    "-QuickTime:MediaModifyDate=$Target",
     '-EXIF:OffsetTime=+00:00',
     '-EXIF:OffsetTimeOriginal=+00:00',
     '-EXIF:OffsetTimeDigitized=+00:00',
@@ -34,7 +37,8 @@ $runArgs = @(
     '-r', # Recurse into subfolders
     '-overwrite_original', #Do not keep _original backups
     '-m', #Ignore minor warnings that could halt processing
-    '-progress' #Show progress in console
+    '-progress', #Show progress in console
+    '-api','QuickTimeUTC=1'   # <— add this (see note above)
 ) + $extArgs + $tagArgs + @($SourceFolder)
 Write-Host "Running ExifTool to set dates to $Target on files under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs

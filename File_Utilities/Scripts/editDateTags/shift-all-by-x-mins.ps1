@@ -1,5 +1,5 @@
 $ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
-$SourceFolder   = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the files
+$SourceFolder = 'C:\Users\saood\Desktop\Nikkah Photos\Nikkah Photos DNG' #TODO: set this to the folder that contains the files
 $MinutesOffset = 4 # TODO: set this to the no. of mins to change the date by e.g. 3 to add three mins; -5 to subtract five mins
 $Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')
 $extArgs = @()
@@ -18,20 +18,24 @@ $shiftTags = @(
     'MediaCreateDate',
     'MediaModifyDate',
     'Keys:CreationDate',
+    'QuickTime:CreateDate',
     'QuickTime:ContentCreateDate',
     'QuickTime:CreationDate',
     'QuickTime:DateTimeOriginal',
+    'QuickTime:MediaCreateDate',
+    'QuickTime:MediaModifyDate',
     'FileCreateDate',
     'FileModifyDate'
 )
 if ($MinutesOffset -ge 0) {
     $shiftOp = '+='
     $absMinutes = [int]$MinutesOffset
-} else {
+}
+else {
     $shiftOp = '-='
     $absMinutes = [int][math]::Abs($MinutesOffset)
 }
-$shiftString = ("0:0:0 0:{0}:0" -f $absMinutes)
+$shiftString = ('0:0:0 0:{0}:0' -f $absMinutes)
 $tagArgs = @()
 foreach ($tag in $shiftTags) {
     $tagArgs += "-$tag$shiftOp$shiftString"

@@ -20,9 +20,12 @@ $tagArgs = @(
     "-MediaCreateDate<$SRC",
     "-MediaModifyDate<$SRC",
     "-Keys:CreationDate<$SRC",
+    "-QuickTime:CreateDate<$SRC",
     "-QuickTime:ContentCreateDate<$SRC",
     "-QuickTime:CreationDate<$SRC",
     "-QuickTime:DateTimeOriginal<$SRC",
+    "-QuickTime:MediaCreateDate<$SRC",
+    "-QuickTime:MediaModifyDate<$SRC",
     '-EXIF:OffsetTime<OffsetTime',
     '-EXIF:OffsetTimeOriginal<OffsetTimeOriginal',
     '-EXIF:OffsetTimeDigitized<OffsetTimeDigitized',
@@ -33,7 +36,8 @@ $runArgs = @(
     '-r', # Recurse into subfolders
     '-overwrite_original', # Do not keep _original backups
     '-m', # Ignore minor warnings
-    '-progress' # Show progress
+    '-progress', # Show progress
+    '-api','QuickTimeUTC=1'   # <— add this (see note above)
 ) + $extArgs + $tagArgs + @($SourceFolder)
 Write-Host "Running ExifTool to copy 'Date Taken' into all date tags under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs
