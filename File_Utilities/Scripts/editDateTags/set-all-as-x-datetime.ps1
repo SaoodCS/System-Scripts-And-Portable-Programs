@@ -1,5 +1,5 @@
 $ExifToolPath = '.\File_Utilities\Programs\ExifTool\exiftool.exe'
-$SourceFolder   = 'C:\Users\saood\Pictures\Backgrounds' #TODO: set this to the folder that contains the files
+$SourceFolder = 'C:\Users\saood\Pictures\Backgrounds' #TODO: set this to the folder that contains the files
 $TargetDate = '2018:01:01' #TODO: set this to the target date you want the files to be set to
 $TargetTime = '12:00:00' #TODO: set this to the target time you want the files to be set to
 $Target = "$TargetDate $TargetTime"
@@ -38,7 +38,7 @@ $runArgs = @(
     '-overwrite_original', #Do not keep _original backups
     '-m', #Ignore minor warnings that could halt processing
     '-progress', #Show progress in console
-    '-api','QuickTimeUTC=1'   # <— add this (see note above)
+    '-api', 'QuickTimeUTC=1' #Ensuring utc tags remain identical to the others
 ) + $extArgs + $tagArgs + @($SourceFolder)
 Write-Host "Running ExifTool to set dates to $Target on files under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs

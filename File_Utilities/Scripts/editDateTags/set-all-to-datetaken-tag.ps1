@@ -37,7 +37,7 @@ $runArgs = @(
     '-overwrite_original', # Do not keep _original backups
     '-m', # Ignore minor warnings
     '-progress', # Show progress
-    '-api','QuickTimeUTC=1'   # <— add this (see note above)
+    '-api','QuickTimeUTC=1' #Ensuring utc tags remain identical to the others
 ) + $extArgs + $tagArgs + @($SourceFolder)
 Write-Host "Running ExifTool to copy 'Date Taken' into all date tags under:`n$SourceFolder`n" -ForegroundColor Cyan
 & $ExifToolPath @runArgs
