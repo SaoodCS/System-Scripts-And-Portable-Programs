@@ -3,10 +3,7 @@ $SourceFolder      = 'D:\AS DNG' #TODO: set the folder containing the original i
 $DestinationFolder = 'C:\Users\saood\Desktop\MagickTrying\' #TODO: set the folder you want the converted images in
 $Extensions = @('*.png','*.jpg','*.jpeg','*.dng','*.tif','*.tiff','*.bmp','*.gif','*.heic','*.webp','*.cr2','*.nef','*.arw','*.orf','*.rw2')
 $ImageFiles = Get-ChildItem -Path (Join-Path $SourceFolder '*') -Include $Extensions -File -Recurse
-if (-not $ImageFiles -or $ImageFiles.Count -eq 0) {
-    Write-Warning "No matching image files found under: $SourceFolder"
-    exit 0
-}
+
 Write-Host "Found $($ImageFiles.Count) file(s). Converting to JPG → $DestinationFolder`n"
 $failures = 0
 foreach ($File in $ImageFiles) {
