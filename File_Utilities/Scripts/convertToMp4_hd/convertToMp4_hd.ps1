@@ -16,8 +16,8 @@ foreach ($file in $VideoFiles) {
         Write-Host "Failed to convert $($file.Name)" -ForegroundColor Red
         continue
     }
-    
-    & $ExifToolPath -m -q -q -TagsFromFile $file.FullName '-all:all>all:all' -overwrite_original -P $outputFile
+
+    & $ExifToolPath -m -q -q -TagsFromFile $file.FullName '-all:all>all:all' -FileModifyDate -FileCreateDate -FileAccessDate -overwrite_original -P $outputFile
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Failed to copy metadata for $(Split-Path -Leaf $outputFile)" -ForegroundColor Yellow
         continue
