@@ -22,6 +22,7 @@ $tagArgs = @(
     "-MediaModifyDate=$Target",
     "-Keys:CreationDate=$Target",
     "-QuickTime:CreateDate=$Target",
+    "-QuickTime:ModifyDate=$Target",
     "-QuickTime:ContentCreateDate=$Target",
     "-QuickTime:CreationDate=$Target",
     "-QuickTime:DateTimeOriginal=$Target",
