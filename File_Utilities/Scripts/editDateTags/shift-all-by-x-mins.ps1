@@ -24,6 +24,7 @@ $shiftTags = @(
     'QuickTime:DateTimeOriginal',
     'QuickTime:MediaCreateDate',
     'QuickTime:MediaModifyDate',
+    'QuickTime:EncodingTime',
     'FileCreateDate',
     'FileModifyDate'
 )
