@@ -18,9 +18,9 @@ function IsIgnoredPath([string]$path) {
     return $false
 }
 
-$deletedFiles   = 0
+$deletedFiles = 0
 $deletedFolders = 0
-$processed      = 0
+$processed = 0
 $lastProgressAt = 0
 
 # Faster case-insensitive substring predicate than regex -match
@@ -43,9 +43,10 @@ foreach ($drive in $drives) {
     # Enumerate directories deepest-first so we can delete whole matching trees early
     try {
         $dirs = Get-ChildItem -LiteralPath $drive.Root -Directory -Recurse -Force -ErrorAction SilentlyContinue |
-                Where-Object { -not (IsIgnoredPath $_.FullName) } |
-                Sort-Object -Property FullName -Descending
-    } catch {
+            Where-Object { -not (IsIgnoredPath $_.FullName) } |
+            Sort-Object -Property FullName -Descending
+    }
+    catch {
         continue
     }
 
@@ -83,7 +84,8 @@ foreach ($drive in $drives) {
                         [void]$seen.Add($child.FullName)
                     }
                 }
-            } catch {
+            }
+            catch {
                 # ignore
             }
         }
@@ -92,8 +94,9 @@ foreach ($drive in $drives) {
     # Now delete matching files that are NOT inside ignored folders or deleted folders (seen prevents repeats)
     try {
         $files = Get-ChildItem -LiteralPath $drive.Root -File -Recurse -Force -ErrorAction SilentlyContinue |
-                 Where-Object { -not (IsIgnoredPath $_.FullName) }
-    } catch {
+            Where-Object { -not (IsIgnoredPath $_.FullName) }
+    }
+    catch {
         continue
     }
 
@@ -116,7 +119,8 @@ foreach ($drive in $drives) {
             try {
                 Remove-Item -LiteralPath $f.FullName -Force -ErrorAction Stop
                 $deletedFiles++
-            } catch {
+            }
+            catch {
                 # ignore
             }
         }
@@ -124,6 +128,6 @@ foreach ($drive in $drives) {
 }
 
 Write-Progress -Activity "Deleting items containing '$target'" -Completed
-Write-Host "Completed." -ForegroundColor Green
+Write-Host 'Completed.' -ForegroundColor Green
 Write-Host "Deleted Files  : $deletedFiles"
 Write-Host "Deleted Folders: $deletedFolders"
