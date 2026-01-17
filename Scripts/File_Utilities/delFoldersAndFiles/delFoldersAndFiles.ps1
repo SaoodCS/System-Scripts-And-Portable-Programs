@@ -1,4 +1,4 @@
-$target = 'autohotkey' #TODO: Set the search term (case-insensitive). If the file/folder contains it in it's name, it'll be deleted
+$target = 'tidytabs' #TODO: Set the search term (case-insensitive). If the file/folder contains it in it's name, it'll be deleted
 
 # Add paths here that you want to completely ignore (and everything under them)
 $ignorePaths = @(

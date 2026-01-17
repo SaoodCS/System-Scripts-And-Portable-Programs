@@ -1,5 +1,5 @@
 # Safely deletes an app from registry without deleting important binaries
-$SearchTerm = 'autohotkey' #TODO: Set the search term (case-insensitive). If the reg key/value name contains it or the value contains it in its string val, it'll be deleted
+$SearchTerm = 'tidytabs' #TODO: Set the search term (case-insensitive). If the reg key/value name contains it or the value contains it in its string val, it'll be deleted
 $RootMap = @{
     'HKLM' = [Microsoft.Win32.Registry]::LocalMachine
     'HKCU' = [Microsoft.Win32.Registry]::CurrentUser
@@ -23,7 +23,7 @@ function ContainsTerm {
 function DataContainsTerm {
     param([object]$Data, [string]$Term)
 
-    if ($null -eq $Data) { return $false }
+    if ($null -eq $Data) { return $false } 
 
     if ($Data -is [string]) {
         return (ContainsTerm $Data $Term)

@@ -1,6 +1,6 @@
 #SingleInstance Force
 #Persistent
-#Include ..\..\Packages\XInput.ahk
+#Include XInput_Package.ahk ; Path to XInput Package
 
 ; Initialize the XInput library
 XInput_Init()
