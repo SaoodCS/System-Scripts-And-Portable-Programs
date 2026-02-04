@@ -1,6 +1,6 @@
 $ExifToolPath = Join-Path $PSScriptRoot '..\..\..\Programs\ExifTool\exiftool.exe'
 $SourceFolder = 'C:\Users\saood\Desktop\Nikkah JPG' #TODO: set this to the folder that contains the files
-$Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov')
+$Extensions = @('jpg', 'jpeg', 'dng', 'cr2', 'nef', 'arw', 'orf', 'raf', 'heic', 'heif', 'mp4', 'mov', 'png', 'avi')
 $extArgs = @()
 foreach ($ext in $Extensions) { $extArgs += @('-ext', $ext) }
 # Source timestamp priority (first one that exists wins), using ExifTool's redirection with ${a;b;c} to try each in order.
