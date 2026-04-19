@@ -1,7 +1,7 @@
 # TODO: update the variables here, then run updateProfile.ps1 to add the path of this file to the PowerShell profile
-$PathTextColor = [ConsoleColor]::Black #TODO: set the path's text color
-$PathBackgroundColor = [ConsoleColor]::Yellow #TODO: set the path's background color
-$GitBranchTextColor = [ConsoleColor]::DarkRed #TODO: set the git branch's text color
+$PathTextColor = [ConsoleColor]::White #TODO: set the path's text color
+$PathBackgroundColor = [ConsoleColor]::DarkBlue #TODO: set the path's background color
+$GitBranchTextColor = [ConsoleColor]::Yellow #TODO: set the git branch's text color
 $ShowGitBranch = $true #TODO: set to false if you don't want to see the git branch
 
 function prompt {
@@ -9,10 +9,11 @@ function prompt {
     $git = ''
     if ($ShowGitBranch) {
         $b = git branch --show-current 2>$null
-        if ($b) { $git = " ⎇ $b" }
+        if ($b) { $git = "⎇ $b" }
     }
-    Write-Host "PS $path >" -ForegroundColor $PathTextColor -BackgroundColor $PathBackgroundColor -NoNewline
+    Write-Host "PS $path" -ForegroundColor $PathTextColor -BackgroundColor $PathBackgroundColor -NoNewline
     if ($git) {
+        Write-Host ' > ' -ForegroundColor $PathTextColor -BackgroundColor $PathBackgroundColor -NoNewline
         Write-Host $git -ForegroundColor $GitBranchTextColor -BackgroundColor $PathBackgroundColor -NoNewline
     }
     Write-Host ' > ' -ForegroundColor $PathTextColor -BackgroundColor $PathBackgroundColor -NoNewline
